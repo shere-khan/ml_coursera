@@ -16,10 +16,9 @@ J = 0;
 
 acc = 0;
 for i=1:m,
-  mult = theta.'*X
-  %fprintf("value of theta transpose x: %f\n", mult);
-  %acc = acc + ( - y)^2;
-%J = acc/2*m;
+  acc = acc + ((theta.' * X(i, :).') - y(i,:))^2;
+endfor
+J = acc/(2*m);
 
 % =========================================================================
 
